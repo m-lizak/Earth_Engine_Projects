@@ -69,8 +69,19 @@ The approach enhances traditional methods by using buffered adaptive threshold s
 
 ## Extending the Study Area
 
-The study area defaults to Lake Erie but can be changed to other Great Lakes basins by modifying the filter line:
+The study area defaults to Lake Erie basin but can be changed to other Great Lakes basins by modifying the filter line:
 
 ```javascript
-var studyArea = greatLakesBasin.filter(ee.Filter.eq('merge', 'lk_erie'));
+var greatLakesBasin = ee.FeatureCollection('users/mlizak/GreatLakes_Basins');
+var studyArea = greatLakesBasin.filter(ee.Filter.eq('merge', 'lk_erie')); // Options: lk_erie, lk_huron, lk_mich, lk_ont, lk_sup
+```
+
+Note:
+The greatLakesBasin asset refers to a shapefile of the Great Lakes basins uploaded to GEE.
+You can replace this asset and the studyArea filter with any other area of interest by importing your own vector data.
+
+## Contributors:
+- Maciej 'Mac' Lizak
+
+---
 
